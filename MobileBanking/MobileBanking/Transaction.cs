@@ -25,15 +25,22 @@ namespace MobileBanking
         private Double moneyAmount;
         private String moneyCurrency; // moneda (dolar, euro, etc)
         private DateTime dateTransaction;
+        private Boolean successfulTransaction;
+        public Transaction()
+        {
+            this.ibanUserEmitter = "00";
+            this.ibanUserReciever = "00";
+
+        }
         public Transaction( String ibanUserEmitter, String ibanUserReciever)
         {
             this.ibanUserEmitter = ibanUserEmitter;
             this.ibanUserReciever = ibanUserReciever;
         }
-        public void setMoney( Double moneyAmount, String moneyCurrency)
+        public void setMoney( String moneyCurrency, Double moneyAmount)
         {
-            this.moneyAmount = moneyAmount;
             this.moneyCurrency = moneyCurrency;
+            this.moneyAmount = moneyAmount;
         }
         public void setDescriptionTransaction(String descriptionTransaction)
         {
@@ -81,6 +88,13 @@ namespace MobileBanking
         {
             return this.dateTransaction;
         }
+        public void setSuccessfulTransaction(Boolean value)
+        {
+            this.successfulTransaction = value;
+        }
+
+
+
     }
 
 }
