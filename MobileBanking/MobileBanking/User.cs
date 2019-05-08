@@ -14,27 +14,32 @@ namespace MobileBanking
 {
     class User
     {
+        private String SUCCESS=new String("SUCCESS");
+        private String FAILURE=new String("FAILURE");
         private String nameUser;
         private String cnpUser;
         private String ibanUser; 
         private String email;
+        private String password;
         private Account[] accounts;
-        private List<Transaction> failedTransaction;
-        private List<Transaction> successfulTransaction;
         public User()
         {
-            this.maintenanceFee = 0.0;
         }
-        public User (String cnpUser, String ibanUser)
-        {
+        public User ( String nameUser, String email, String cnpUser, String ibanUser)
+        {///////creare User
+            this.nameUser = nameUser;
+            this.email = email;
             this.cnpUser = cnpUser;
             this.ibanUser = ibanUser;
+        }
+        public void loginUser(String email, String password)
+        {
+            ///verifica daca exista userul in baza de date 
         }
         public void setNameUser(String nameUser)
         {
             this.nameUser = nameUser;
         }
-        
         public void setAccounts(Account[] accounts)
         {
             Account[] auxiliarAccounts = new Account[accounts.Length];
@@ -83,49 +88,20 @@ namespace MobileBanking
                 if (this.accounts[i].getMoneyCurrency().Equals(moneyCurrency))
                 {
                     this.accounts[i].addMoneyAmount(moneyAmount);
-                    return "SUCCESS";//: THE AMMOUNT WAS ADDED TO YOUR ACCOUNT
+                    return SUCCESS;//: THE AMMOUNT WAS ADDED TO YOUR ACCOUNT
                 }
                 else {
                     i++;
                 }
             }
-            return "FAILURE";//: YOU DO NOT OWN AN ACCOUNT IN THAT CURRNCY
+            return FAILURE;//: YOU DO NOT OWN AN ACCOUNT IN THAT CURRNCY
         }
-        public String recieveMoney(Transaction transaction)
+       
+        public void sendMoney(String ibanReciever, String moneyAmount, String moneyCurrency)
         {
-            int i = 0;
-            Boolean existingAccount = false;
-            while (i<accounts.Length && existingAccount==false)
-            {
-                if (transaction.getMoneyCurrency().Equals(accounts[i].getMoneyCurrency()))
-                {
-                    existingAccount = true;
-                    accounts[i].addMoneyAmount(transaction.getMoneyAmount());
-                    /////vreau sa memorez tranzactiile de primire bani sau le scriu direct in baza de date si le iau de acolo prin Bank ???
-                }
-                else
-                {
-                    i++;
-                }
-
-            }
-            if (i < accounts.Length)
-            {
-                return "SUCCES";
-            }
-            else
-            {
-                return "FAILURE";
-            }
+          
+         //   User reciver=
         }
-        public void addFailedTransaction(Transaction transaction)
-        {
-            failedTransaction.Add(transaction);
-
-        }
-        public void addSuccessfulTransaction(Transaction transaction)
-        {
-            successfulTransaction.Add(transaction);
-        }
+        
     }
 }

@@ -23,7 +23,7 @@ namespace MobileBanking
         private String cnpUserEmitter;
         private String cnpUserReciever;
         private Double moneyAmount;
-        private String moneyCurrency; // moneda (dolar, euro, etc)
+        private String moneyCurrency; // moneda 
         private DateTime dateTransaction;
         private Boolean successfulTransaction;
         public Transaction()
@@ -92,9 +92,7 @@ namespace MobileBanking
         {
             this.successfulTransaction = value;
         }
-
-
-
+        
     }
 
 }
