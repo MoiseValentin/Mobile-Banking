@@ -14,8 +14,8 @@ namespace MobileBanking
 {
     class User
     {
-        private String SUCCESS=new String("SUCCESS");
-        private String FAILURE=new String("FAILURE");
+        private String SUCCESS="SUCCESS";
+        private String FAILURE="FAILURE";
         private String nameUser;
         private String cnpUser;
         private String ibanUser; 
@@ -65,10 +65,10 @@ namespace MobileBanking
         {
             this.email = email;
         }
-        public Double get()
-        {
-            return this.maintenanceFee;
-        }
+       // public Double get()
+        //{
+           // return this.maintenanceFee;
+        //}
         public void addAccount(String iban, String moneyCurency)
         {
             Account newAccount = new Account(iban, moneyCurency);

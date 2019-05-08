@@ -19,6 +19,8 @@ namespace MobileBanking
         private Double moneyAmount;
         private Double maintenanceFee; //comision de intretinere
         private DateTime dateOpeningAccont;
+        private string moneyCurency;
+
         //private Transaction[] transactions;
         /// <summary>
         /// /\Userul ar trebui ca, dupa ce alege contul, daca are suficienti bani in cont sa poata sa trimita "un mesaj" bancii cu suma, descrierea si iban-ul contului in care 
@@ -45,6 +47,13 @@ namespace MobileBanking
             this.moneyCurrency = moneyCurency;
             this.maintenanceFee = maintenanceFee;
         }
+
+        public Account(string iban, string moneyCurency)
+        {
+            this.iban = iban;
+            this.moneyCurency = moneyCurency;
+        }
+
         public void setMoneyAmount(Double moneyAmount)
         {
             this.moneyAmount = moneyAmount;
@@ -84,10 +93,10 @@ namespace MobileBanking
             if (this.extractMoney(moneyAmount).Equals("SUCCESS")) //daca are suficienti bani in cont 
             {
                 Bank bankInstance = Bank.getBank();
-                Transaction transaction = new Transaction(this.getIban(), ibanUserEmitter);
-                transaction.setMoney(moneyCurrency, moneyAmount);
-                transaction.setIbanUserReciever(ibanUserReciever);
-                bankInstance.addInternTransaction(transaction);             
+               // Transaction transaction = new Transaction(this.getIban(), ibanUserEmitter);
+                //transaction.setMoney(moneyCurrency, moneyAmount);
+               // transaction.setIbanUserReciever(ibanUserReciever);
+                //bankInstance.addInternTransaction(transaction);             
             }
         }
         public void newExternBankTransaction(String externBank, String ibanUserReciever, String moneyCurrency, Double moneyAmount)

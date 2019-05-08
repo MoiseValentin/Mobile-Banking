@@ -55,6 +55,7 @@ namespace MobileBanking
             {
                 getBank();///daca nu exista obiectul deja, il instantiez 
             }
+            
             lock (variableLock)
             {
                 int i = 0;
@@ -70,9 +71,10 @@ namespace MobileBanking
                         i++;
                     }
                 }
-            } 
                 if (find == true) return users[i];
                 else return null;
+            } 
+               
      
         }
         public void addExternTransaction(String externBank, Transaction newTransaction)
