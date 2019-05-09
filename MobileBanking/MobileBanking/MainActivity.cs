@@ -12,6 +12,8 @@ using Android.Support.V7.App;
 using Android.Runtime;
 using Android.Widget;
 using Xamarin.Forms;
+using Android.Content;
+
 namespace MobileBanking
 {
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
@@ -22,21 +24,19 @@ namespace MobileBanking
             base.OnCreate(savedInstanceState);
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.activity_main);
-            Android.Widget.Button connectButton = FindViewById<Android.Widget.Button>(Resource.Id.button1);
-            var txt = FindViewById<TextView>(Resource.Id.textview);
-            connectButton.Click += (e, o) =>
+            Android.Widget.Button buttonLogIn = FindViewById<Android.Widget.Button>(Resource.Id.buttonLogInMain);
+            buttonLogIn.Click += (e, o) =>
             {
-                List<SqlParameter> sqlParameters = new List<SqlParameter>();
-                sqlParameters.Add(new SqlParameter("Username", "a"));
-                sqlParameters.Add(new SqlParameter("Password", "abc"));
-
-                DataTable loginResults = DatabaseConnection.ExecSp("ValidateLogin", sqlParameters);
-                if(loginResults.Rows.Count == 1)
-                {
-                    string user = loginResults.Rows[0]["Username"].ToString();
-                    txt.Text = "OMG MERGE";
-                }
+                Intent nextActivity = new Intent(this, typeof(LoginPage));
+                StartActivity(nextActivity);
             };
+            Android.Widget.Button buttonSignUp = FindViewById<Android.Widget.Button>(Resource.Id.buttonSignUpMain);
+            buttonSignUp.Click += (e, o) =>
+            {
+                Intent nextActivity = new Intent(this, typeof(RegisterPage));
+                StartActivity(nextActivity);
+            };
+
         }
     }
 }

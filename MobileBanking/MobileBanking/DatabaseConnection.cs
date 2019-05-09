@@ -19,7 +19,7 @@ namespace MobileBanking
     {
         public static DataTable ExecSp(string spName, List<SqlParameter> sqlParams = null)
         {
-            string strConnect = @"SERVER=192.168.0.101\SQLEXPRESS;DATABASE=MobileBanking;UID=user;PASSWORD=abc555abc;Trusted_Connection=no;";
+            string strConnect = @"SERVER=192.168.0.100\SQLEXPRESS;DATABASE=MobileBanking;UID=user;PASSWORD=abc555abc;Trusted_Connection=no;";
             SqlConnection connection = new SqlConnection();
             DataTable daTable = new DataTable();
             try
