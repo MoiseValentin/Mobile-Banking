@@ -22,24 +22,34 @@ namespace MobileBanking
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.login_page);
             Android.Widget.Button buttonLogIn = FindViewById<Android.Widget.Button>(Resource.Id.buttonLogIn);
             var emailInput = FindViewById<TextView>(Resource.Id.textInsertEmail);
             var passwordInput = FindViewById<TextView>(Resource.Id.textInsertPassword);
             buttonLogIn.Click += (e, o) =>
             {
-                  List<SqlParameter> sqlParameters = new List<SqlParameter>();
-                  sqlParameters.Add(new SqlParameter("Username", emailInput.Text));
-                  sqlParameters.Add(new SqlParameter("Password", passwordInput.Text));
+                string password = PCLCrypto.GenerateHash(passwordInput.Text);
+                List<SqlParameter> sqlParameters = new List<SqlParameter>
+                {
+                    new SqlParameter("Email", emailInput.Text),
+                    new SqlParameter("Password", password)
+                };
 
-                  DataTable loginResults = DatabaseConnection.ExecSp("ValidateLogin", sqlParameters);
+                DataTable loginResults = DatabaseConnection.ExecSp("ValidateLogin", sqlParameters);
+                DataRow storedResults = loginResults.Rows[0];
                   if(loginResults.Rows.Count == 1)
                   {
-                    // string user = loginResults.Rows[0]["Username"].ToString();
-                    // txt.Text = "OMG MERGE";
+                    User currentUser = User.Instance;                    
+                    currentUser.password = passwordInput.Text;
+                    currentUser.email = storedResults["Email"].ToString();
+                    currentUser.firstName = storedResults["FirstName"].ToString();
+                    currentUser.lastName = storedResults["LastName"].ToString();
+                    currentUser.phoneNumber = storedResults["PhoneNumber"].ToString();
+                    currentUser.birthDate = Convert.ToDateTime(storedResults["BirthDate"].ToString());
                     Toast.MakeText(ApplicationContext, "Welcome!", ToastLength.Long).Show();
-                  }
+                    Intent nextActivity = new Intent(this, typeof(MainPage));
+                    StartActivity(nextActivity);
+                }
                   else
                 {
                     Toast.MakeText(ApplicationContext, "Wrong email/password", ToastLength.Long).Show();

@@ -22,17 +22,26 @@ namespace MobileBanking
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.register_page);
-
             Android.Widget.Button buttonSignUp = FindViewById<Android.Widget.Button>(Resource.Id.buttonSignUp);
             var emailInput = FindViewById<TextView>(Resource.Id.textInsertEmail);
             var passwordInput = FindViewById<TextView>(Resource.Id.textInsertPassword);
+            var firstName = FindViewById<TextView>(Resource.Id.textInsertFirstName);
+            var lastName = FindViewById<TextView>(Resource.Id.textInsertLastName);
+            var phoneNumber = FindViewById<TextView>(Resource.Id.textInsertPhoneNumber);
+            var birthDate = FindViewById<TextView>(Resource.Id.textInsertBirthDate);
             buttonSignUp.Click += (e, o) =>
             {
-                List<SqlParameter> sqlParameters = new List<SqlParameter>();
-                sqlParameters.Add(new SqlParameter("Username", emailInput.Text));
-                sqlParameters.Add(new SqlParameter("Password", passwordInput.Text));
+                string password = PCLCrypto.GenerateHash(passwordInput.Text);
+                List<SqlParameter> sqlParameters = new List<SqlParameter>
+                {
+                    new SqlParameter("Email", emailInput.Text),
+                    new SqlParameter("Password", password),
+                    new SqlParameter("FirstName", firstName.Text),
+                    new SqlParameter("LastName", lastName.Text),
+                    new SqlParameter("PhoneNumber", phoneNumber.Text),
+                    new SqlParameter("BirthDate", birthDate.Text)
+                };
 
                 DataTable loginResults = DatabaseConnection.ExecSp("CreateUser", sqlParameters);
 

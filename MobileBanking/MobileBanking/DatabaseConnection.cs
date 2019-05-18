@@ -17,17 +17,21 @@ namespace MobileBanking
 {
     public static class DatabaseConnection
     {
+        private const string connectionString = @"SERVER=188.25.84.84,1433\SQLEXPRESS;DATABASE=MobileBanking;UID=user;PASSWORD=abc555abc;Trusted_Connection=no;";
+
         public static DataTable ExecSp(string spName, List<SqlParameter> sqlParams = null)
         {
-            string strConnect = @"SERVER=192.168.0.100\SQLEXPRESS;DATABASE=MobileBanking;UID=user;PASSWORD=abc555abc;Trusted_Connection=no;";
+            string strConnect = connectionString;
             SqlConnection connection = new SqlConnection();
             DataTable daTable = new DataTable();
             try
             {
                 connection = new SqlConnection(strConnect);
                 connection.Open();
-                SqlCommand command = new SqlCommand(spName, connection);
-                command.CommandType = CommandType.StoredProcedure;
+                SqlCommand command = new SqlCommand(spName, connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
                 command.Parameters.AddRange(sqlParams.ToArray());
                 SqlCommand command2 = connection.CreateCommand();
                 SqlDataReader dataReader = command.ExecuteReader();
