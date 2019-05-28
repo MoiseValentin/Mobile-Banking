@@ -242,6 +242,7 @@
 				android:clickable="true"
 				android:focusableInTouchMode="true"
 				android:focusable="auto"
+				android:hint="DD/MM/YYYY"
 				android:focusedByDefault="false" />
 			<Button
 				android:text="Sign up"

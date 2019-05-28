@@ -46,6 +46,15 @@ namespace MobileBanking
                     currentUser.lastName = storedResults["LastName"].ToString();
                     currentUser.phoneNumber = storedResults["PhoneNumber"].ToString();
                     currentUser.birthDate = Convert.ToDateTime(storedResults["BirthDate"].ToString());
+                    currentUser.numberOfAccounts = Convert.ToInt32(storedResults["NumberOfAccounts"]);
+                    currentUser.id = Convert.ToInt32(storedResults["Id"]);
+                    for (int i = 0; i < currentUser.numberOfAccounts; i++)
+                    {
+                        int j = i + 1;
+                        currentUser.accountList[i].iban = storedResults["Account" + j.ToString() + "_Iban"].ToString();
+                        currentUser.accountList[i].balance = (float)Convert.ToDouble(storedResults["Account" + j.ToString() + "_Balance"]);
+                        currentUser.accountList[i].currency = storedResults["Account" + j.ToString() + "_Currency"].ToString();
+                    }
                     Toast.MakeText(ApplicationContext, "Welcome!", ToastLength.Long).Show();
                     Intent nextActivity = new Intent(this, typeof(MainPage));
                     StartActivity(nextActivity);

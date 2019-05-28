@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+	<TextView
+		android:text="Name"
+		android:textAppearance="?android:attr/textAppearanceMedium"
+		android:layout_width="match_parent"
+		android:layout_height="50dp"
+		android:textColor="#ff000000"
+		android:id="@+id/textUserName"
+		android:gravity="center"
+		android:textStyle="bold"
+		android:textSize="25dp"
+		android:layout_marginTop="10dp"
+		android:layout_marginBottom="20dp"
+		android:layout_gravity="center"
+		android:layout_marginLeft="10dp"
+		android:layout_marginRight="10dp" />
+	<TextView
+		android:text="No accounts"
+		android:textAppearance="?android:attr/textAppearanceMedium"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:textColor="#ff000000"
+		android:id="@+id/textNoAccounts"
+		android:layout_marginTop="15dp"
+		android:layout_marginBottom="15dp"
+		android:layout_marginLeft="10dp"
+		android:layout_marginRight="10dp"
+		android:gravity="center"
+		android:layout_below="@id/textUserName"/>
+	<Button
+		android:text="New account"
+		android:layout_width="fill_parent"
+		android:layout_height="80dp"
+		android:id="@+id/buttonNewAccount"
+		android:layout_marginTop="20dp"
+		android:layout_marginBottom="10dp"
+		android:layout_marginLeft="40dp"
+		android:layout_marginRight="40dp"
+		android:textSize="14dp"
+		android:layout_below="@id/textNoAccounts"
+		android:textAllCaps="false" />
+
+</RelativeLayout>

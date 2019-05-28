@@ -13,25 +13,28 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+
 namespace MobileBanking
 {
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = false)]
-    public class MainPage : AppCompatActivity
+    public class AccountsPage : AppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.main_page);
+            SetContentView(Resource.Layout.accounts_page);
+            Android.Widget.Button buttonNewAccount = FindViewById<Android.Widget.Button>(Resource.Id.buttonNewAccount);
             var userName = FindViewById<TextView>(Resource.Id.textUserName);
             User currentUser = User.Instance;
-            userName.Text = currentUser.firstName +" "+ currentUser.lastName;
-            Android.Widget.Button buttonSeeAccounts = FindViewById<Android.Widget.Button>(Resource.Id.buttonAccounts);
+            userName.Text = currentUser.firstName + " " + currentUser.lastName;
 
-            buttonSeeAccounts.Click += (e, o) =>
+            buttonNewAccount.Click += (e, o) =>
             {
-                Intent nextActivity = new Intent(this, typeof(AccountsPage));
-                StartActivity(nextActivity);
+                    Intent nextActivity = new Intent(this, typeof(NewAccountPage));
+                    StartActivity(nextActivity);
             };
+
+
         }
     }
 }

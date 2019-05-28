@@ -25,11 +25,18 @@ namespace MobileBanking
         public string lastName { get; set; }
         public string phoneNumber { get; set; }
         public DateTime birthDate { get; set; }
+        public int numberOfAccounts { get; set; }
+        public int id { get; set; }
+        public Account[] accountList = new Account[3];
         static User()
         {
         }
         private User()
         {
+            for (int i = 0; i < 3; i++)
+            {
+                accountList[i] = new Account();
+            }
         }
         public static User Instance
         {

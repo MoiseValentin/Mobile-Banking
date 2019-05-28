@@ -17,7 +17,7 @@ namespace MobileBanking
 {
     public static class DatabaseConnection
     {
-        private const string connectionString = @"SERVER=188.25.84.84,1433\SQLEXPRESS;DATABASE=MobileBanking;UID=user;PASSWORD=abc555abc;Trusted_Connection=no;";
+        private const string connectionString = @"SERVER=5.12.236.72,1433\SQLEXPRESS;DATABASE=MobileBanking;UID=user;PASSWORD=abc555abc;Trusted_Connection=no;";
 
         public static DataTable ExecSp(string spName, List<SqlParameter> sqlParams = null)
         {

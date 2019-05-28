@@ -66,8 +66,11 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account.cs" />
+    <Compile Include="AccountsPage.cs" />
     <Compile Include="LoginPage.cs" />
     <Compile Include="MainPage.cs" />
+    <Compile Include="NewAccountPage.cs" />
     <Compile Include="PCLCrypto.cs" />
     <Compile Include="RegisterPage.cs" />
     <Compile Include="DatabaseConnection.cs" />
@@ -111,19 +114,19 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MySql.Data">
-      <Version>8.0.15</Version>
+      <Version>8.0.16</Version>
     </PackageReference>
     <PackageReference Include="PCLCrypto">
       <Version>2.0.147</Version>
     </PackageReference>
     <PackageReference Include="System.Data.SqlClient">
-      <Version>4.6.0</Version>
+      <Version>4.6.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.Design">
-      <Version>27.0.2</Version>
+      <Version>28.0.0.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms">
-      <Version>3.6.0.264807</Version>
+      <Version>3.6.0.344457</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
@@ -138,6 +141,16 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\main_page.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\accounts_page.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\new_account_page.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

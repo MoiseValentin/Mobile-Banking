@@ -30,25 +30,65 @@ namespace MobileBanking
             var lastName = FindViewById<TextView>(Resource.Id.textInsertLastName);
             var phoneNumber = FindViewById<TextView>(Resource.Id.textInsertPhoneNumber);
             var birthDate = FindViewById<TextView>(Resource.Id.textInsertBirthDate);
+            int ok;
+            string password="";
             buttonSignUp.Click += (e, o) =>
             {
-                string password = PCLCrypto.GenerateHash(passwordInput.Text);
-                List<SqlParameter> sqlParameters = new List<SqlParameter>
+                ok = 1;
+                if(passwordInput.Text.Length <= 3)
                 {
-                    new SqlParameter("Email", emailInput.Text),
-                    new SqlParameter("Password", password),
-                    new SqlParameter("FirstName", firstName.Text),
-                    new SqlParameter("LastName", lastName.Text),
-                    new SqlParameter("PhoneNumber", phoneNumber.Text),
-                    new SqlParameter("BirthDate", birthDate.Text)
-                };
+                    Toast.MakeText(ApplicationContext, "Password must be at least 4 characters long", ToastLength.Long).Show();
+                    ok = 0;
+                }
+                else
+                {
+                    password = PCLCrypto.GenerateHash(passwordInput.Text);
+                }
+                if(emailInput.Text.Length <= 6 || !emailInput.Text.Contains('@'))
+                {
+                    Toast.MakeText(ApplicationContext, "Invalid email", ToastLength.Long).Show();
+                    ok = 0;
+                }
+                if(firstName.Text.Length <= 2 || lastName.Text.Length <=2)
+                {
+                    Toast.MakeText(ApplicationContext, "Invalid name", ToastLength.Long).Show();
+                    ok = 0;
+                }
+                if(phoneNumber.Text.Length <= 7)
+                {
+                    Toast.MakeText(ApplicationContext, "Invalid phone number", ToastLength.Long).Show();
+                    ok = 0;
+                }
+                if (ok == 1)
+                {
+                    List<SqlParameter> sqlParameters = new List<SqlParameter>
+                    {
+                    new SqlParameter("Email", emailInput.Text)
+                    };
+                    DataTable validateEmailResults = DatabaseConnection.ExecSp("ValidateEmail", sqlParameters);
+                    if (validateEmailResults.Rows.Count > 0)
+                    {
+                        Toast.MakeText(ApplicationContext, "Email already used", ToastLength.Long).Show();
+                    }
+                    else
+                    {
+                        List<SqlParameter> sqlParameters2 = new List<SqlParameter>
+                        {
+                        new SqlParameter("Email", emailInput.Text),
+                        new SqlParameter("Password", password),
+                        new SqlParameter("FirstName", firstName.Text),
+                        new SqlParameter("LastName", lastName.Text),
+                        new SqlParameter("PhoneNumber", phoneNumber.Text),
+                        new SqlParameter("BirthDate", birthDate.Text)
+                        };
 
-                DataTable loginResults = DatabaseConnection.ExecSp("CreateUser", sqlParameters);
+                        DatabaseConnection.ExecSp("CreateUser", sqlParameters2);
 
-                Toast.MakeText(ApplicationContext, "Account created!", ToastLength.Long).Show();
+                        Toast.MakeText(ApplicationContext, "Account created!", ToastLength.Long).Show();
+                        Finish();
+                    }
+                }
             };
-            
-
         }
     }
 }
