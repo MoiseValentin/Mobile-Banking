@@ -36,9 +36,9 @@ namespace MobileBanking
                 };
 
                 DataTable loginResults = DatabaseConnection.ExecSp("ValidateLogin", sqlParameters);
-                DataRow storedResults = loginResults.Rows[0];
                   if(loginResults.Rows.Count == 1)
                   {
+                    DataRow storedResults = loginResults.Rows[0];
                     User currentUser = User.Instance;                    
                     currentUser.password = passwordInput.Text;
                     currentUser.email = storedResults["Email"].ToString();

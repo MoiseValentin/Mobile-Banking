@@ -62,6 +62,7 @@ namespace MobileBanking
                         };
 
                         DatabaseConnection.ExecSp("CreateNewAccount" + currentUser.numberOfAccounts.ToString(), sqlParameters);
+                        Toast.MakeText(ApplicationContext, "Account created", ToastLength.Long).Show();
                     }
                 }
                 else Toast.MakeText(ApplicationContext, "Maximum number of accounts reached", ToastLength.Long).Show();

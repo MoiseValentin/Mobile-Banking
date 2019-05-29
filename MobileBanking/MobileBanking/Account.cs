@@ -23,11 +23,12 @@ namespace MobileBanking
         public float balance { get; set; }
         public string GenerateIban()
         {
-            string iban = "RO49AAAA1B3100759384";
-
             Random rnd = new Random();
-            int randomIban = rnd.Next(1000, 9999);
-            iban = iban + randomIban.ToString();
+            string iban = "RO49AAAA1B";
+            int randomIban1 = rnd.Next(1000000, 9999999);
+            iban = iban + randomIban1.ToString();
+            int randomIban2 = rnd.Next(1000000, 9999999);
+            iban = iban + randomIban2.ToString();
             List<SqlParameter> sqlParameters = new List<SqlParameter>
                 {
                     new SqlParameter("Iban", iban)
