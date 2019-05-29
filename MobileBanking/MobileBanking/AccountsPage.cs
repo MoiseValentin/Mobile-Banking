@@ -71,6 +71,7 @@ namespace MobileBanking
                     textAccount3Currency.Text = currentUser.accountList[2].currency + ": ";
                     textAccount3Balance.Text = currentUser.accountList[2].balance.ToString();
                     textAccount3Iban.Text = "IBAN:  " + currentUser.accountList[2].iban;
+                    buttonNewAccount.Visibility = ViewStates.Invisible;
                 }
 
             }
@@ -96,9 +97,13 @@ namespace MobileBanking
             }
             buttonNewAccount.Click += (e, o) =>
             {
+                if (currentUser.numberOfAccounts < 3)
+                {
                     Intent nextActivity = new Intent(this, typeof(NewAccountPage));
                     StartActivity(nextActivity);
                     Finish();
+                }
+                else Toast.MakeText(ApplicationContext, "Maximum number of accounts reached", ToastLength.Long).Show();
             };
 
 
