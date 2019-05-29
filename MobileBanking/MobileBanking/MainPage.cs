@@ -26,11 +26,23 @@ namespace MobileBanking
             User currentUser = User.Instance;
             userName.Text = currentUser.firstName +" "+ currentUser.lastName;
             Android.Widget.Button buttonSeeAccounts = FindViewById<Android.Widget.Button>(Resource.Id.buttonAccounts);
-
+            Android.Widget.Button buttonTransfer = FindViewById<Android.Widget.Button>(Resource.Id.buttonTransfer);
             buttonSeeAccounts.Click += (e, o) =>
             {
                 Intent nextActivity = new Intent(this, typeof(AccountsPage));
                 StartActivity(nextActivity);
+            };
+            buttonTransfer.Click += (e, o) =>
+            {
+                if(currentUser.numberOfAccounts == 0)
+                {
+                    Toast.MakeText(ApplicationContext, "You must have at least one account", ToastLength.Long).Show();
+                }
+                else
+                {
+                    Intent nextActivity = new Intent(this, typeof(TransferPage));
+                    StartActivity(nextActivity);
+                }
             };
         }
     }

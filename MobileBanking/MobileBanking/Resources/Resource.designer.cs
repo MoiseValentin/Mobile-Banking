@@ -5158,8 +5158,8 @@ namespace MobileBanking
 			// aapt resource value: 0x7f0900b2
 			public const int buttonLogIn = 2131296434;
 			
-			// aapt resource value: 0x7f0900fc
-			public const int buttonLogInMain = 2131296508;
+			// aapt resource value: 0x7f090102
+			public const int buttonLogInMain = 2131296514;
 			
 			// aapt resource value: 0x7f09009a
 			public const int buttonNewAccount = 2131296410;
@@ -5170,8 +5170,8 @@ namespace MobileBanking
 			// aapt resource value: 0x7f0900f2
 			public const int buttonSignUp = 2131296498;
 			
-			// aapt resource value: 0x7f0900fd
-			public const int buttonSignUpMain = 2131296509;
+			// aapt resource value: 0x7f090103
+			public const int buttonSignUpMain = 2131296515;
 			
 			// aapt resource value: 0x7f0900b4
 			public const int buttonTransfer = 2131296436;
@@ -5347,8 +5347,8 @@ namespace MobileBanking
 			// aapt resource value: 0x7f0900f4
 			public const int main_toolbar = 2131296500;
 			
-			// aapt resource value: 0x7f0900ff
-			public const int masked = 2131296511;
+			// aapt resource value: 0x7f090105
+			public const int masked = 2131296517;
 			
 			// aapt resource value: 0x7f0900dd
 			public const int media_actions = 2131296477;
@@ -5481,6 +5481,15 @@ namespace MobileBanking
 			
 			// aapt resource value: 0x7f090075
 			public const int radio = 2131296373;
+			
+			// aapt resource value: 0x7f0900fc
+			public const int radioAccount1 = 2131296508;
+			
+			// aapt resource value: 0x7f0900fd
+			public const int radioAccount2 = 2131296509;
+			
+			// aapt resource value: 0x7f0900fe
+			public const int radioAccount3 = 2131296510;
 			
 			// aapt resource value: 0x7f0900d6
 			public const int radioEUR = 2131296470;
@@ -5677,8 +5686,8 @@ namespace MobileBanking
 			// aapt resource value: 0x7f0900f0
 			public const int textBirthDate = 2131296496;
 			
-			// aapt resource value: 0x7f0900fb
-			public const int textCreateAccount = 2131296507;
+			// aapt resource value: 0x7f090101
+			public const int textCreateAccount = 2131296513;
 			
 			// aapt resource value: 0x7f0900ae
 			public const int textEmail = 2131296430;
@@ -5697,6 +5706,9 @@ namespace MobileBanking
 			
 			// aapt resource value: 0x7f0900eb
 			public const int textInsertFirstName = 2131296491;
+			
+			// aapt resource value: 0x7f090100
+			public const int textInsertIbanTransfer = 2131296512;
 			
 			// aapt resource value: 0x7f0900ed
 			public const int textInsertLastName = 2131296493;
@@ -5730,6 +5742,12 @@ namespace MobileBanking
 			
 			// aapt resource value: 0x7f090069
 			public const int textSpacerNoTitle = 2131296361;
+			
+			// aapt resource value: 0x7f0900fb
+			public const int textTransfer = 2131296507;
+			
+			// aapt resource value: 0x7f0900ff
+			public const int textTransferTo = 2131296511;
 			
 			// aapt resource value: 0x7f09008c
 			public const int textUserName = 2131296396;
@@ -5791,8 +5809,8 @@ namespace MobileBanking
 			// aapt resource value: 0x7f090016
 			public const int view_offset_helper = 2131296278;
 			
-			// aapt resource value: 0x7f0900fe
-			public const int visible = 2131296510;
+			// aapt resource value: 0x7f090104
+			public const int visible = 2131296516;
 			
 			// aapt resource value: 0x7f0900c9
 			public const int volume_item_container = 2131296457;
@@ -6113,7 +6131,10 @@ namespace MobileBanking
 			public const int tooltip = 2130968650;
 			
 			// aapt resource value: 0x7f04004b
-			public const int welcome_page = 2130968651;
+			public const int transfer_page = 2130968651;
+			
+			// aapt resource value: 0x7f04004c
+			public const int welcome_page = 2130968652;
 			
 			static Layout()
 			{

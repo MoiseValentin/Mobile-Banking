@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+<ScrollView
+		android:minWidth="25px"
+		android:minHeight="25px"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/scrollView1" >
+		<RelativeLayout
+			android:orientation="vertical"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:focusableInTouchMode="true"
+			android:focusedByDefault="true">
+			<TextView
+				android:text="Transfer money"
+				android:textAppearance="?android:attr/textAppearanceMedium"
+				android:layout_width="match_parent"
+				android:layout_height="50dp"
+				android:textColor="#ff000000"
+				android:id="@+id/textTransfer"
+				android:gravity="center"
+				android:textStyle="bold"
+				android:textSize="25dp"
+				android:layout_marginTop="10dp"
+				android:layout_gravity="center"
+				android:layout_marginLeft="10dp"
+				android:layout_marginRight="10dp" />
+			<TextView
+				android:text="Balance: "
+				android:textAppearance="?android:attr/textAppearanceMedium"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textColor="#ff000000"
+				android:id="@+id/textBalance"
+				android:layout_marginTop="15dp"
+				android:layout_marginBottom="15dp"
+				android:layout_marginLeft="10dp"
+				android:layout_marginRight="10dp"
+				android:layout_gravity="right"
+				android:layout_below="@id/textTransfer"/>
+			<TextView
+				android:textAppearance="?android:attr/textAppearanceMedium"
+				android:layout_width="300dp"
+				android:layout_height="28dp"
+				android:textColor="#ff000000"
+				android:id="@+id/textInsertBalance"
+				android:gravity="left"
+				android:layout_marginTop="15dp"
+				android:layout_marginBottom="10dp"
+				android:layout_marginLeft="10dp"
+				android:layout_marginRight="10dp"
+				android:layout_below="@id/textTransfer"
+				android:layout_toRightOf="@id/textBalance"
+				android:backgroundTintMode="src_in"
+				android:background="#ffdfdfdf"
+				android:textSize="16dp"
+				android:editable="true"
+				android:inputType="none|number|numberSigned|numberDecimal"
+				android:clickable="true"
+				android:focusableInTouchMode="true"
+				android:focusable="auto"
+				android:focusedByDefault="false" />
+			<RadioGroup
+			android:minWidth="25px"
+			android:minHeight="25px"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="15dp"
+			android:id="@+id/radioGroup"
+			android:layout_below="@id/textBalance">
+			<RadioButton
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:checked="true"
+			android:text="Account 1 (0 RON)"
+			android:id="@+id/radioAccount1" />
+			<RadioButton
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="Account 2 (0 RON)"
+			android:id="@+id/radioAccount2" />
+			<RadioButton
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="Account 3 (0 RON)"
+			android:id="@+id/radioAccount3" />
+
+			</RadioGroup>
+			<TextView
+				android:text="Transfer to: "
+				android:textAppearance="?android:attr/textAppearanceMedium"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textColor="#ff000000"
+				android:id="@+id/textTransferTo"
+				android:layout_marginTop="15dp"
+				android:layout_marginBottom="15dp"
+				android:layout_marginLeft="10dp"
+				android:layout_marginRight="10dp"
+				android:layout_gravity="right"
+				android:layout_below="@id/radioGroup"/>
+			<TextView
+				android:textAppearance="?android:attr/textAppearanceMedium"
+				android:layout_width="300dp"
+				android:layout_height="28dp"
+				android:textColor="#ff000000"
+				android:id="@+id/textInsertIbanTransfer"
+				android:gravity="left"
+				android:layout_marginTop="15dp"
+				android:layout_marginBottom="10dp"
+				android:layout_marginRight="10dp"
+				android:layout_below="@id/radioGroup"
+				android:layout_toRightOf="@id/textTransferTo"
+				android:backgroundTintMode="src_in"
+				android:background="#ffdfdfdf"
+				android:textSize="16dp"
+				android:editable="true"
+				android:inputType="none|text"
+				android:clickable="true"
+				android:focusableInTouchMode="true"
+				android:focusable="auto"
+				android:focusedByDefault="false"
+				android:hint=" Insert IBAN"/>
+			<Button
+				android:text="Transfer"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:id="@+id/buttonTransfer"
+				android:layout_marginTop="20dp"
+				android:layout_marginBottom="10dp"
+				android:layout_marginLeft="10dp"
+				android:layout_marginRight="10dp"
+				android:textSize="15dp"
+				android:layout_below="@id/textTransferTo"
+				android:textAllCaps="false"
+				android:enabled="true" />
+		</RelativeLayout>
+	</ScrollView>
+	
+</LinearLayout>

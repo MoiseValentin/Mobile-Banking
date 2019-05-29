@@ -45,13 +45,7 @@ namespace MobileBanking
                 textAccount1Currency.Text = currentUser.accountList[0].currency + ": ";
                 textAccount1Balance.Text = currentUser.accountList[0].balance.ToString();
                 textAccount1Iban.Text = "IBAN:  " + currentUser.accountList[0].iban;
-                textAccount2Currency.Text = currentUser.accountList[1].currency + ": ";
-                textAccount2Balance.Text = currentUser.accountList[1].balance.ToString();
-                textAccount2Iban.Text = "IBAN:  " + currentUser.accountList[1].iban;
-                textAccount3Currency.Text = currentUser.accountList[2].currency + ": ";
-                textAccount3Balance.Text = currentUser.accountList[2].balance.ToString();
-                textAccount3Iban.Text = "IBAN:  " + currentUser.accountList[2].iban;
-
+               
                 MakeAccountsInvisible();
                 textNoAccounts.Visibility = ViewStates.Invisible;
                 textAccount1.Visibility = ViewStates.Visible;
@@ -64,6 +58,9 @@ namespace MobileBanking
                     textAccount2Currency.Visibility = ViewStates.Visible;
                     textAccount2Balance.Visibility = ViewStates.Visible;
                     textAccount2Iban.Visibility = ViewStates.Visible;
+                    textAccount2Currency.Text = currentUser.accountList[1].currency + ": ";
+                    textAccount2Balance.Text = currentUser.accountList[1].balance.ToString();
+                    textAccount2Iban.Text = "IBAN:  " + currentUser.accountList[1].iban;
                 }
                 if(currentUser.numberOfAccounts == 3)
                 {
@@ -71,6 +68,9 @@ namespace MobileBanking
                     textAccount3Currency.Visibility = ViewStates.Visible;
                     textAccount3Balance.Visibility = ViewStates.Visible;
                     textAccount3Iban.Visibility = ViewStates.Visible;
+                    textAccount3Currency.Text = currentUser.accountList[2].currency + ": ";
+                    textAccount3Balance.Text = currentUser.accountList[2].balance.ToString();
+                    textAccount3Iban.Text = "IBAN:  " + currentUser.accountList[2].iban;
                 }
 
             }
